@@ -15,7 +15,7 @@ install:
   - ln -s $PWD /usr/local/share/arduino/libraries/MemStream
 
 script:
-  - arduino --verify --board ${BOARD} $PWD/examples/MemStreamTest.ino
+  - arduino --verify --board ${BOARD} $PWD/examples/MemStreamTest/MemStreamTest.ino
 
 env:
  - ARDUINO_IDE_VERSION=1.6.5 BOARD=arduino:avr:uno
