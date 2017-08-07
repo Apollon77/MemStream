@@ -1,0 +1,12 @@
+MemStream	KEYWORD1
+current_length	KEYWORD2
+listen	KEYWORD2
+end	KEYWORD2
+isListening	KEYWORD2
+overflow	KEYWORD2
+peek	KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+available	KEYWORD2
+flush	KEYWORD2
+setBufferContent	KEYWORD2
