@@ -84,3 +84,16 @@ void MemStream::setBufferContent(uint8_t *buffer, uint16_t content_len) {
   _pos_write=content_len;
   _pos_read=0;
 }
+
+void MemStream::setBufferContentFromProgmem(uint8_t *buffer, uint16_t content_len) {
+  memset(_buffer, 0, _len);
+  memcpy_P(_buffer, buffer, content_len);
+  _buffer_overflow=false;
+  _pos_write=content_len;
+  _pos_read=0;
+}
+
+void MemStream::setBufferContentPosition(uint16_t read_pos, uint16_t write_pos) {
+    _pos_write=write_pos;
+    _pos_read=read_pos;
+}

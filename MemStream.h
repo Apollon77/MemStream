@@ -25,6 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include <inttypes.h>
 #include <Stream.h>
+#include <avr/pgmspace.h>
 
 class MemStream : public Stream
 {
@@ -35,7 +36,7 @@ private:
    uint16_t _pos_read;
    uint16_t _pos_write;
    bool _allowWrite;
-   
+
 
 public:
   // public methods
@@ -46,7 +47,7 @@ public:
   operator const char *() const { return (const char*)_buffer; }
 
   const uint16_t current_length() const { return _pos_write; }
- 
+
   bool listen() { return true; }
   void end() {}
   bool isListening() { return true; }
@@ -57,10 +58,11 @@ public:
   virtual int read();
   virtual int available();
   virtual void flush();
-  
-  void setBufferContent(uint8_t *buffer, uint16_t content_len);
 
-  
+  void setBufferContent(uint8_t *buffer, uint16_t content_len);
+  void setBufferContentFromProgmem(uint8_t *buffer, uint16_t content_len);
+  void setBufferContentPosition(uint16_t read_pos, uint16_t write_pos);
+
   using Print::write;
 };
 
